@@ -1,0 +1,12 @@
+---
+
+- name: "Clone dotfiles"
+  ansible.builtin.git:
+    repo: 'https://github.com/pwernicki/dotfiles.git'
+    dest: /home/{{ user }}/.dotfiles
+    version: master
+
+- name: "Stow dotfiles"
+  ansible.builtin.command:
+    cmd: "stow -d /home/{{ user }}/.dotfiles ."
+  changed_when: false

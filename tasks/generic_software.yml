@@ -1,0 +1,6 @@
+---
+- name: "Install generic software"
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ generic_software }}"

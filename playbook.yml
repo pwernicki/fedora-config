@@ -1,0 +1,7 @@
+---
+- name: "Configure fedora box"
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: "Import main task"
+      ansible.builtin.import_tasks: tasks/main.yml

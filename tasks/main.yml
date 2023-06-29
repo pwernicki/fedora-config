@@ -1,0 +1,26 @@
+---
+
+- name: "Configure DNF"
+  ansible.builtin.lineinfile:
+    state: present
+    path: /etc/dnf/dnf.conf
+    line: "{{ item }}"
+  loop:
+    - max_parallel_downloads=10
+    - fastestmirror=true
+    - deltarpm=true
+  become: true
+
+- name: "Import generic software"
+  ansible.builtin.import_tasks: generic_software.yml
+  become: true
+
+- name: "Import devops software"
+  ansible.builtin.import_tasks: devops_software.yml
+  become: true
+
+- name: "Import dotfiles"
+  ansible.builtin.import_tasks: dotfiles.yml
+
+- name: "Import fish extras"
+  ansible.builtin.import_tasks: fish_extras.yml

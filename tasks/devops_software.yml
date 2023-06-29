@@ -1,0 +1,12 @@
+---
+- name: "Install devops software"
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ devops_software }}"
+
+- name: Install node.js packages globally.
+  community.general.npm:
+    name: "{{ item }}"
+    global: true
+  loop: "{{ npm_software }}"

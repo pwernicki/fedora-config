@@ -1,0 +1,30 @@
+---
+
+user: pwernicki
+
+generic_software:
+  - gpg
+  - curl
+  - wget
+  - bash-completion
+  - fortune-mod
+  - ca-certificates
+  - stow
+  - fish
+  - kitty
+  - exa
+
+devops_software:
+  - neovim
+  - gcc
+  - gcc-c++
+  - nodejs
+  - git
+  - ansible
+  - ansible-lint
+  - terraform
+  - terraform-ls
+
+npm_software:
+  - neovim
+  - pyright
