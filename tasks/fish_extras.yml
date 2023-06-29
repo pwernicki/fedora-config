@@ -4,6 +4,7 @@
   ansible.builtin.command:
     cmd: "usermod -s /usr/bin/fish {{ user }}"
   changed_when: false
+  become: true
 
 - name: "Install fisher"
   ansible.builtin.shell:
