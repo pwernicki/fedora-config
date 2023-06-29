@@ -1,4 +1,10 @@
 ---
+
+- name: "Add hashicorp dnf repo"
+  ansible.builtin.command:
+    cmd: "dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo"
+  changed_when: false
+
 - name: "Install devops software"
   ansible.builtin.dnf:
     name: "{{ item }}"
