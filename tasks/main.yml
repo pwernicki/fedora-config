@@ -13,14 +13,18 @@
 
 - name: "Import generic software"
   ansible.builtin.import_tasks: generic_software.yml
+  tags: generic
   become: true
 
 - name: "Import devops software"
   ansible.builtin.import_tasks: devops_software.yml
+  tags: devops
   become: true
 
 - name: "Import dotfiles"
   ansible.builtin.import_tasks: dotfiles.yml
+  tags: dotfiles
 
 - name: "Import fish extras"
   ansible.builtin.import_tasks: fish_extras.yml
+  tags: fish

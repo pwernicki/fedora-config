@@ -7,15 +7,25 @@
   become: true
 
 - name: "Install fisher"
-  ansible.builtin.shell:
-    cmd: 'curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher'
+  ansible.builtin.shell: |
+    set -o pipefail
+    curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
   args:
     executable: /usr/bin/fish
   changed_when: false
 
 - name: "Install tide"
   ansible.builtin.shell:
-    cmd: 'fisher install IlanCosman/tide@v5'
+    cmd: 'fisher install IlanCosman/tide@v6'
+  args:
+    executable: /usr/bin/fish
+  changed_when: false
+
+- name: "Configure tide"
+  ansible.builtin.shell:
+    cmd: tide configure --auto --style=Rainbow --prompt_colors='True color' --show_time=No --rainbow_prompt_separators=Slanted \
+      --powerline_prompt_heads=Sharp --powerline_prompt_tails=Round --powerline_prompt_style='One line' --prompt_spacing=Sparse \
+      --icons='Many icons' --transient=No;
   args:
     executable: /usr/bin/fish
   changed_when: false
