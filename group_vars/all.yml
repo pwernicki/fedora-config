@@ -13,6 +13,7 @@ generic_software:
   - fish
   - kitty
   - exa
+  - timeshift
 
 devops_software:
   - neovim

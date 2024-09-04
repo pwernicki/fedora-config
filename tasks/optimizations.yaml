@@ -1,0 +1,11 @@
+---
+
+- name: Disable NetworkManager-wait-online service
+  ansible.builtin.systemd_service:
+    name: NetworkManager-wait-online
+    enabled: false
+
+- name: Disable Gnome Software from Startup Apps
+  ansible.builtin.file:
+    path: /etc/xdg/autostart/org.gnome.Software.desktop
+    state: absent

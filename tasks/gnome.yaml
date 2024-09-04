@@ -1,0 +1,15 @@
+---
+
+- name: Install the 'Pop Shell' package
+  ansible.builtin.dnf:
+    name: "{item}"
+    state: present
+  loop:
+    - gnome-shell-extension-pop-shell
+    - xprop
+
+- name: Install the gnome-tweaks package
+  ansible.builtin.dnf:
+    name: gnome-tweaks
+    state: present
+
